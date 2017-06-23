@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+		<div class="login-box-wrap">
+			<div class="login-box no-longlogin module-quick">
+				<div class="hd">
+					<div class="login-switch">
+						<span class="iconfont quick" onclick="changeway(this)"></span>
+						<span class="iconfont static" onclick="changeway(this)"></span>
+					</div>
+					<div class="login-tip">
+						<div class="poptip">
+							<div class="poptip-arrow">
+								<em></em>
+								<span></span>
+							</div>
+							<div class="poptip-content">
+								<i class="iconfont logo_qrcodesafe"></i>
+								扫码登录更安全
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bd">
+					<div class="static-form" id="J_staticForm">
+						<div class="login-title">密码登录</div>
+						<form action="">
+							<div class="field username-field">
+								<label for="TPL_username_1"><span class="logo_user"></span></label>
+								<input class="login-text" type="text" placeholder="会员名/邮箱/手机号">
+							</div>
+							<div class="field pwd-field">
+								<label for="TPL_username_1"><span class="logo_pwd"></span></label>
+								<input class="login-text" type="password" >
+							</div>
+							<div class="nc-container bt-login"></div>
+							<div class="submit">
+								<button type="submit" class="J_Submit" tabindex="3" id="J_SubmitStatic" data-ing="正在登录...">登 录</button>
+							</div>
+							<ul class="entries">
+								<li class="other-login">
+									<span class="log_wb"></span>
+								<a href="">
+									微博登录
+								</a>
+								<i class="log_zfb"></i>
+								<a href="">支付宝登陆</a></li>
+							</ul>
+							<div class="login-links">
+								<a href="#" class="forget-pwd">忘记密码</a>
+								<a href="#" class="register">免费注册</a>
+							</div>
+						</form>
+					</div>
+					<div class="quick-form">
+						<div class="qrcode-login qrcode-login-error" id="J_QRCodeLogin">
+							<div class="login-title">手机扫码，安全登录</div>
+							<div class="qrcode-mod">
+								<div class="qrcode-main">
+									<div class="qrcode-img" id="J_QRCodeImg">
+										<img src="img/qrcode.png"/>
+									</div>
+									<div class="qrcode-help"></div>
+									<div class="msg-err">
+										<h6>二维码已失效</h6>
+										<a href="javascript:;" class="refresh J_QRCodeRefresh">请点击刷新</a>
+									</div>
+								</div>
+								<div class="qrcode-desc"></div>
+							</div>
+							<div class="qrcode-msg"></div>
+							<div class="login-links">
+								<a href="javascript:void(0);" onclick="J_Quick2Static()" class="forget-pwd J_Quick2Static">密码登录</a>
+								<a href="#" class="register">免费注册</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			let changeway=(s)=>{
+				var c=s.className;
+				var logbox=document.querySelector('.login-box');
+				var old=logbox.className
+				if(c!=null&&c.indexOf('static')>0){
+					logbox.className=old.replace('module-quick','module-static')
+				}else{
+					logbox.className=old.replace('module-static','module-quick')
+				}
+			}
+			//密码登陆
+				let J_Quick2Static=()=>{
+					var logbox=document.querySelector('.login-box');
+					var old=logbox.className
+					if(old!=null&&old.indexOf('module-quick')>0){
+						logbox.className=old.replace('module-quick','module-static')
+					}
+				}
+			window.onload=function(){
+				//定时显示失效
+				var clock=function (){
+					var qrcode=document.querySelector('.qrcode-login');
+					var c=qrcode.className;
+					var t=c.indexOf('qrcode-login-error');
+					if(c!=null&&c.indexOf('qrcode-login-error')<0){
+						qrcode.className+='qrcode-login-error';
+					}
+				}
+				setInterval(clock,60000);
+				var refresh=document.querySelector('.J_QRCodeRefresh');
+				var qrcode=document.querySelector('.qrcode-login');
+				refresh.onclick=function(){
+					var c=qrcode.className;
+					if(c!=null&&c.indexOf('qrcode-login-error')>0){
+						qrcode.className=c.replace('qrcode-login-error','');
+					}
+				}
+				
+			}
+		</script>
+</body>
+</html>
