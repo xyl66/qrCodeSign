@@ -58,7 +58,7 @@ body{
 		    position: relative;
 		}
 		.login-box {
-			background-color: rgba(255,255,255,0.9);
+			background-color: rgba(255,255,255,1);
 		    width: 300px;
 		    padding: 25px 25px 23px;
 		    color: #6c6c6c;
@@ -172,27 +172,32 @@ body{
 		    line-height: 18px;
 		    font-size: 16px;
 		    color: #3c3c3c;
-		    margin-top: 9px;
+		    margin-top: 30px;
 		    padding-bottom: 8px;
 		    font-weight: 700;
+		    text-align: center;
 		}
 		.qrcode-main {
 		    position: relative;
-		    margin-top: 24px;
+		    margin-top: 5px;
 		    height: 140px;
 		}
 		.qrcode-img {
 		    position: absolute;
-		    left: 80px;
 		    top: 0;
 		    z-index: 100;
+		    width:100%;
+		    text-align: center;
+		}
+		.qrcode-img img{
+			max-width: 120px;
 		}
 		.qrcode-login .msg-err {
-		    width: 140px;
-		    height: 140px;
-		    background: rgba(255,255,255,.95);
+		    width: 100%;
+		    height: 120px;
+		    background: rgba(255,255,255,.85);
 		    position: absolute;
-		    left: 80px;
+		    text-align: center;;
 		    top: 0;
 		    z-index: 9999;
 		}
