@@ -4,7 +4,7 @@
   
 ---
 效果图
-![](../../login-1.png?0.07308572013171388 )  
-![](../../login-2.png?0.7985798925912524 )  
-![](../../login-3.png?0.6877083765347123 )  
+![GitHub Logo](https://github.com/xyl66/qrCodeSign/raw/master/login-1.png)
+![GitHub Logo](https://github.com/xyl66/qrCodeSign/raw/master/login-2.png)
+![GitHub Logo](https://github.com/xyl66/qrCodeSign/raw/master/login-3.png)
   
